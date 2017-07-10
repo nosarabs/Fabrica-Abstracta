@@ -13,21 +13,59 @@ void Problema_TdH::inicializar() {
 }
 
 Estado ** Problema_TdH::getEstadosSiguientesValidos(Estado * otro) {
-    
-    Estado * ptr;
+
+    Estado ** ptr;
     Estado * peces [2]; // Posibles Estados Seguientes
     Estado * anterior;
     
     Estado sig1;
     Estado sig2;
     
+    peces[0] = sig1;
+    peces[1] = sig2;
+    ptr = peces;
+    
     anterior = EA;
     EA = otro;
     
-    if (anterior -> noSonIguales(otro) && (otro -> noSonIguales(EI))) {
+    for (int i = 0; i < 2; ++i) {
+        
+        if (anterior -> noSonIguales(otro) && (otro -> noSonIguales(EI)) {
         
         
+            if (otro -> Torres[0][topDisco(0)] < otro -> Torres[1][topDisco(1)]) {
+                otro -> Torres[1][topDisco(1) + 1] = otro -> Torres[0][topDisco(0)];
+                otro -> Torres[0][topDisco(0)] = 0;
+                peces[i] = new Estado(otro);
+            }
+            else if (otro -> Torres[0][topDisco(0)] < otro -> Torres[2][topDisco(2)]) {
+                otro -> Torres[2][topDisco(2) + 1] = otro -> Torres[0][topDisco(0)];
+                otro -> Torres[0][topDisco(0) = 0;
+                peces[i] = new Estado(otro);
+            }
+            else if (otro -> Torres[1][topDisco(1)] < otro -> Torres[0][topDisco(0)) {
+                otro -> Torres[0][topDisco(0) + 1] = otro -> Torres[1][topDisco(1)];
+                otro -> Torres[1][topDisco(1)] = 0;
+                peces[i] = new Estado(otro);
+            }
+            else if (otro -> Torres[1][topDisco(1)] < otro -> Torres[2][topDisco(2)) {
+                otro -> Torres[2][topDisco(2) + 1] = otro -> Torres[1][topDisco(1)];
+                otro -> Torres[1][topDisco(1)] = 0;
+                peces[i] = new Estado(otro);
+            }
+            else if (otro -> Torres[2][topDisco(2)] < otro -> Torres[0][topDisco(0)) {
+                otro -> Torres[0][topDisco(0) + 1] = otro -> Torres[2][topDisco(2)];
+                otro -> Torres[2][topDisco(2)] = 0;
+                peces[i] = new Estado(otro);
+            }
+            else if (otro -> Torres[2][topDisco(2)] < otro -> Torres[1][topDisco(1)) {
+                otro -> Torres[1][topDisco(1) + 1] = otro -> Torres[2][topDisco(2)];
+                otro -> Torres[2][topDisco(2)] = 0;
+                peces[i] = new Estado(otro);
+            }
+        }
     }
+    return ptr;
 }
 
 double Problema_TdH::coeficienteDeSimilitud(Estado * otro , Estado * fin) {
@@ -74,6 +112,6 @@ int Problema_TdH::esSolucion(Estado * otro) {
     }
 }
 
-~Problema_TdH() {
-    
+Problema::~Problema() {
+
 }
