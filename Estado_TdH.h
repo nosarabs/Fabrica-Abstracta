@@ -12,7 +12,7 @@ class Estado_TdH : public Estado {
      * REQ: <un pase por referencia hacia un objeto tipo Estado, llamado e.>
      *      <un pase por referencia a un ofstream llamado salida.>
      *
-     * RET: <el ofstream que devuelve la función imorimir.>
+     * RET: <el ofstream que devuelve la función imprimir.>
      *
      */
     friend ostream& operator << (ostream salida, Estado & e) {
@@ -22,12 +22,12 @@ class Estado_TdH : public Estado {
 public:
     
     /*
-     *<Descripcion del metodo.>
-     *<Descripcion del algoritmo.>
+     *<Funcion para imprimir las Torres del Estado actual.>
+     *<Recorre la Torres del Estado actual, que en realidad es una matriz, y la imprime.>
      *
-     * REQ: <.>
+     * REQ: <un pase por referencia a un ofstream llamado salida.>
      *
-     * RET: <.>
+     * RET: <un ofstream con las Torres del Estado actual.>
      *
      */
     ostream& imprimir(ostream &);
@@ -49,7 +49,7 @@ public:
 	Estados_TdH();
     
     /*
-     * <Constructor de la clase con objeto Estado_TdH.>
+     * <Constructor de la clase con un objeto Estado_TdH.>
      * <Utiliza el Constructor con entero, y se usa como parametro la variable Discos
      *  del objeto que entra como parametro.>
      *
@@ -59,10 +59,11 @@ public:
 	Estados_TdH(Estado_TdH);
     
     /*
-     *<Descripcion del metodo.>
-     *<Descripcion del algoritmo.>
+     *<Metodo para crear el Estado Final.>
+     *<Crea a partir del Estado Inicial, el estado Final.>
+     *<Mueve los Discos de la primeera Torres, hacia la ultima.>
      *
-     * REQ: <.>
+     * REQ: <no requiere parametros.>
      *
      * RET: <void, por lo que no retorna nada.>
      *
@@ -70,26 +71,27 @@ public:
     void hacerFinal();
     
     /*
-     *<Descripcion del metodo.>
-     *<Descripcion del algoritmo.>
+     *<Funcion que compara dos Estados para ver si son iguales o no.>
+     *<Recorre las posiciones de cada Torres en cada Estado.>
      *
-     * REQ: <.>
+     * REQ: <un puntero a un objeto tipo Estado..>
      *
-     * RET: <.>
+     * RET: <un int en 1 si son diferentes.>
+     *      <un int en 0 si son iguales.>
      *
      */
     int noSonIguales(Estado *);
     
     /*
-     *<Descripcion del metodo.>
-     *<Descripcion del algoritmo.>
+     *<Funcion que devuelve la posicion en la que esta el disco mas alto de una Torres.>
+     *<Busca en el numero de Torres que entra como parametro, cual es la posicion que tiene el disco que se encuentra en la parte mas alta.>
      *
-     * REQ: <.>
+     * REQ: <un int que es la Torres en la que se desea buscar, llamado num.>
      *
-     * RET: <.>
+     * RET: <un int que es la posicion, llamado topNum.>
      *
      */
-    int numArriba(int);
+    int topDisco(int);
     
  private:
  
