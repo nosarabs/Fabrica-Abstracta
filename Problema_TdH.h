@@ -72,15 +72,10 @@ public:
     int esSolucion(Estado *);
     
     /*
-     *<Descripcion del metodo.>
-     *<Descripcion del algoritmo.>
-     *
-     * REQ: <.>
-     *
-     * RET: <.>
+     *<Destructor de la clase.>
      *
      */
-    ~Problema_TdH();
+    ~Problema();
     
 private:
 	
